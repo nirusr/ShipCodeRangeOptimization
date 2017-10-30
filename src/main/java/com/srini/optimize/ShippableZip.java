@@ -54,77 +54,34 @@ public class ShippableZip extends Zipcode {
 		for (Zipcode z : tempZipcodeArr) {
 			System.out.println(z.lowerbound + "|" + z.upperbound);
 		}
-		
-		// 3. check lowbound matching
-		int upper1 = 0;
-		int lower1 = 0;
-		// System.out.println(tempZipcodeArr.size());
-		int len1 = tempZipcodeArr.size();
-		int i1, j1 = 0;
-		ArrayList<Zipcode> arrZipcode1 = new ArrayList<Zipcode>();
-		outerloop: 
-		for (i1 = 0; i1 < len1; i1++) {
-			Zipcode firstZipcode1 = tempZipcodeArr.get(i1);
-			lower1 = firstZipcode1.getLowerbound();
-			upper1 = firstZipcode1.getUpperbound();
-			// System.out.print(i + "=>");
-			// System.out.println(upper);
-
-			innerloop: 
-			for (j1 = i1 + 1; j1 < len1; j1++) {
-				// System.out.print(j +",");
-				Zipcode nextZipcode1 = tempZipcodeArr.get(j1);
-				
-					
-				if (firstZipcode1.lowerbound == nextZipcode1.lowerbound) {
-					// System.out.println( nextZipcode.getUpperbound());
-					upper1 = nextZipcode1.getUpperbound();
-					i1 = j1;
-				}
-				
-
-			}
-
-			// System.out.println("Upper:" + upper);
-			Zipcode zipcode1 = new Zipcode();
-			zipcode1.setKey(0);
-			zipcode1.setLowerbound(lower1);
-			zipcode1.setUpperbound(upper1);
-			arrZipcode1.add(zipcode1);
-		}
-		System.out.println("\n");
-		for (Zipcode f : arrZipcode1) {
-			System.out.println(f.getLowerbound() + "|" + f.getUpperbound());
-
-		}
-		
-		/*
+			/*
 		1. Take a range
 		2. Search for lower bound + 1
 		3. If found, set upper bound
 		*/
+		
 		
 		int i2 = 0;
 		int j2 = 0;
 		int upper2 = 0;
 		int lower2 = 0;
 		int checkLower = 0;
-		int len2 = arrZipcode1.size();
+		int len2 = tempZipcodeArr.size();
 		ArrayList<Zipcode> arrZipcode2 = new ArrayList<Zipcode>();
 		for ( i2 = 0; i2 < len2; i2++ ) {
-			Zipcode firstZipcode2 = arrZipcode1.get(i2);
+			Zipcode firstZipcode2 = tempZipcodeArr.get(i2);
+			//breaking here....
 			upper2 = firstZipcode2.getUpperbound();
 			lower2 = firstZipcode2.getLowerbound();
-			
 			for ( j2 = i2+1; j2 < len2; j2++) {
-				Zipcode nextZipcode2 = arrZipcode1.get(j2);
-				if (( nextZipcode2.getLowerbound() > firstZipcode2.getLowerbound()) && (nextZipcode2.getLowerbound() < firstZipcode2.getUpperbound()) ) {
-					
-					if ( nextZipcode2.getUpperbound() > firstZipcode2.getUpperbound()) {
+				Zipcode nextZipcode2 = tempZipcodeArr.get(j2);
+				if (( nextZipcode2.getLowerbound() >= lower2) && (nextZipcode2.getLowerbound() < upper2) ) {
+					if ( nextZipcode2.getUpperbound() > upper2) {
 						upper2 = nextZipcode2.upperbound;
-						
+						i2 =j2;
 					}
-					i2 =j2;
+				} else {
+					break;
 				}
 				
 			}
