@@ -32,6 +32,7 @@ public class NonShippableZip extends Zipcode {
 				arrZipcodeObj.add(objZipcode);
 
 			}
+			br.close();
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
 		} catch(IOException e) {
