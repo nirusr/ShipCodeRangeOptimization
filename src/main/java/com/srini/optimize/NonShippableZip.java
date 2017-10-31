@@ -14,6 +14,15 @@ import java.util.List;
 
 
 public class NonShippableZip extends Zipcode {
+	public static ArrayList<Zipcode> results = new ArrayList<Zipcode>();
+	public static ArrayList<Zipcode> getResults() {
+		return results;
+	}
+	public static void setResults(ArrayList<Zipcode> results) {
+		NonShippableZip.results = results;
+	}
+
+
 
 	public static void main(String[] args) {
 		String filename = args[0];
@@ -131,6 +140,7 @@ public class NonShippableZip extends Zipcode {
 
 		}
 		
+		NonShippableZip.setResults(arrZipcode3);
 		
 	}
 

@@ -11,5 +11,18 @@ Given a collection of 5 digit ZIP code ranges (each range includes both their up
 
 Solution:
 1. Clone the repository
+<br></br>
 2. Clean and build using Maven
-3. 
+
+3. Create a txt file with following entries (each line with two zipcodes, separated by comma)
+   filename: zipcode.txt
+	Eg.
+	94133,94133
+    94200,94299
+    94600,94699
+    94200,94299
+    94300,94305
+    
+4. Execute the java program
+java -cp target/ShipCodeRangeOptimization-1.0-SNAPSHOT.jar com.srini.optimize.NonShippableZip  <directory name/zipcode.txt>
+e.g. java -cp target/ShipCodeRangeOptimization-1.0-SNAPSHOT.jar com.srini.optimize.NonShippableZip ../zipcode.txt
