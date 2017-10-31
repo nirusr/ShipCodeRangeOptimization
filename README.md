@@ -29,7 +29,19 @@ Solution:
     94300,94305
     
 4. Execute the java program
-java -cp target/ShipCodeRangeOptimization-1.0-SNAPSHOT.jar com.srini.optimize.NonShippableZip  <directory name/zipcode.txt>
+
+"java -cp target/ShipCodeRangeOptimization-1.0-SNAPSHOT.jar com.srini.optimize.NonShippableZip  <directory name/zipcode.txt>"
+
 e.g. java -cp target/ShipCodeRangeOptimization-1.0-SNAPSHOT.jar com.srini.optimize.NonShippableZip ../zipcode.txt
 
 5. Ouput the optimized range of zipcode (sysout)
+
+e.g.
+
+Optimized Entries:( Size=3)
+
+94133|94133
+
+94200|94305
+
+94600|94699
