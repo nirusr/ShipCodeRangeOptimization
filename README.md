@@ -8,3 +8,8 @@ Then the item can be shipped to zip code 94199, 94300, and 65532, but cannot be 
 Any item might be restricted based on multiple sets of these ranges obtained from multiple sources.
 PROBLEM
 Given a collection of 5 digit ZIP code ranges (each range includes both their upper and lower bounds), provide an algorithm that produces the minimum number of ranges required to represent the same restrictions as the input . 
+
+Solution:
+1. Clone the repository
+2. Clean and build using Maven
+3. 

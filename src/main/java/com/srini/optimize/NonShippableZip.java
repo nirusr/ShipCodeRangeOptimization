@@ -1,6 +1,7 @@
 package com.srini.optimize;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -15,13 +16,16 @@ import java.util.List;
 public class NonShippableZip extends Zipcode {
 
 	public static void main(String[] args) {
-
+		String filename = args[0];
+		System.out.println("Input filename:" + filename);
 
 		String line;
 		ArrayList<Zipcode> arrZipcodeObj = new ArrayList<Zipcode>();
 		try {
-			Path path = Paths.get(NonShippableZip.class.getResource("/zipcode.txt").toURI());
-			BufferedReader br = new BufferedReader(new FileReader(path.toFile()));
+			//Path path = Paths.get(NonShippableZip.class.getResource("/zipcode.txt").toURI());
+			//BufferedReader br = new BufferedReader(new FileReader(path.toFile()));
+			BufferedReader br = new BufferedReader(new FileReader(new File(filename)));
+			
 			while ((line = br.readLine()) != null) {
 				// System.out.println(line);
 				String[] split = line.split(",");
@@ -33,8 +37,6 @@ public class NonShippableZip extends Zipcode {
 
 			}
 			br.close();
-		} catch (URISyntaxException e) {
-			e.printStackTrace();
 		} catch(IOException e) {
 			e.printStackTrace();
 		}
