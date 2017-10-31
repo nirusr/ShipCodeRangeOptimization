@@ -12,23 +12,21 @@ import java.util.HashSet;
 import java.util.List;
 
 
-public class ShippableZip extends Zipcode {
+public class NonShippableZip extends Zipcode {
 
 	public static void main(String[] args) {
 
 
 		String line;
-		int keyval = 0;
 		ArrayList<Zipcode> arrZipcodeObj = new ArrayList<Zipcode>();
 		try {
-			Path path = Paths.get(ShippableZip.class.getResource("/zipcode.txt").toURI());
+			Path path = Paths.get(NonShippableZip.class.getResource("/zipcode.txt").toURI());
 			BufferedReader br = new BufferedReader(new FileReader(path.toFile()));
 			while ((line = br.readLine()) != null) {
 				// System.out.println(line);
 				String[] split = line.split(",");
 
 				Zipcode objZipcode = new Zipcode();
-				objZipcode.key = keyval++;
 				objZipcode.lowerbound = Integer.parseInt(split[0]);
 				objZipcode.upperbound = Integer.parseInt(split[1]);
 				arrZipcodeObj.add(objZipcode);
@@ -39,7 +37,6 @@ public class ShippableZip extends Zipcode {
 		} catch(IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println(arrZipcodeObj.get(0).lowerbound);
 
 		// 2. Sort and Remove duplicates
 		// Remove Duplicates
@@ -85,7 +82,6 @@ public class ShippableZip extends Zipcode {
 				
 			}
 			Zipcode zipcode2 = new Zipcode();
-			zipcode2.setKey(arrZipcode2.size()+1);
 			zipcode2.setLowerbound(lower2);
 			zipcode2.setUpperbound(upper2);
 			arrZipcode2.add(zipcode2);
@@ -120,7 +116,6 @@ public class ShippableZip extends Zipcode {
 				
 			}
 			Zipcode zipcode3 = new Zipcode();
-			zipcode3.setKey(arrZipcode3.size()+1);
 			zipcode3.setLowerbound(lower3);
 			zipcode3.setUpperbound(upper3);
 			arrZipcode3.add(zipcode3);

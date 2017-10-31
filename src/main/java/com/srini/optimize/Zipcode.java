@@ -1,12 +1,5 @@
 package com.srini.optimize;
 public class Zipcode {
-	public int key;
-	public int getKey() {
-		return key;
-	}
-	public void setKey(int key) {
-		this.key = key;
-	}
 	public int lowerbound;
 	public int upperbound;
 	@Override
