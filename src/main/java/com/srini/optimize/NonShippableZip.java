@@ -37,12 +37,13 @@ public class NonShippableZip extends Zipcode {
 			
 			while ((line = br.readLine()) != null) {
 				// System.out.println(line);
-				String[] split = line.split(",");
-
-				Zipcode objZipcode = new Zipcode();
-				objZipcode.lowerbound = Integer.parseInt(split[0]);
-				objZipcode.upperbound = Integer.parseInt(split[1]);
-				arrZipcodeObj.add(objZipcode);
+				if ( ! line.trim().isEmpty()) {
+					String[] split = line.split(",");
+					Zipcode objZipcode = new Zipcode();
+					objZipcode.lowerbound = Integer.parseInt(split[0]);
+					objZipcode.upperbound = Integer.parseInt(split[1]);
+					arrZipcodeObj.add(objZipcode);
+				}
 
 			}
 			br.close();
